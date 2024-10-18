@@ -11,9 +11,25 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.doctors, { foreignKey: "doctor_id" });
+
+  this.belongsToMany(models.drugs, {
+    through: models.rx_drugs,
+    foreignKey: "rx_groups_id",
+    otherKey: "drug_id",
+  });
+  this.hasMany(models.rx_drugs, { foreignKey: "rx_groups_id" });
     }
   }
-  rx_group.init({
+  
+
+
+
+
+
+// ref: drugs.id > rx_drugs.drug_id
+  
+  rx_groups.init({
     name: DataTypes.STRING,
     doctor_id: DataTypes.INTEGER,
     is_active: DataTypes.BOOLEAN,

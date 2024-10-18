@@ -27,9 +27,18 @@ fs
     );
   })
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
+    try {
+      const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+      if (!model || !model.name) {
+        console.error(`Model defined in file ${file} is undefined or has no name property.`);
+        return; // Skip this model
+      }
+      db[model.name] = model;
+    } catch (error) {
+      console.error(`Error loading model from file ${file}:`, error);
+    }
   });
+
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {

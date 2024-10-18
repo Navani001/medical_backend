@@ -21,10 +21,13 @@ module.exports = {
       time_to_take: {
         type: Sequelize.INTEGER
       },
-      comsumption_type: {
+      comsumption_type_id: {
         type: Sequelize.INTEGER
       },
-      comsumption_day_type: {
+      drug_time: {
+        type: Sequelize.INTEGER
+      },
+      comsumption_day_type_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {
