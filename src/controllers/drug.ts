@@ -64,9 +64,42 @@ export const add_drug_rx = async (req: any, res: any) => {
   res.send(data);
 };
 export const rename_rx = async (req: any, res: any) => {
-  const rx_id=req.params.id
-  
-const data=tables.rx_groups.update({name:req.body.name},{where:{id:rx_id}})
+  const rx_id = req.params.id;
+
+  const data = tables.rx_groups.update(
+    { name: req.body.name },
+    { where: { id: rx_id } }
+  );
+
+  res.send(data);
+};
+export const changetakentime = async (req: any, res: any) => {
+  const spec_id = req.body.spec_id;
+
+  const data = tables.drugs_specs.update(
+    { drug_time: req.body.drug_time },
+    { where: { id: spec_id } }
+  );
+
+  res.send(data);
+};
+export const change_comsumption_type = async (req: any, res: any) => {
+  const spec_id = req.body.spec_id;
+
+  const data = tables.drugs_specs.update(
+    { drug_time: req.body.comsumption_type_id },
+    { where: { id: spec_id } }
+  );
+
+  res.send(data);
+};
+export const change_comsumption_day_type = async (req: any, res: any) => {
+  const spec_id = req.body.spec_id;
+
+  const data = tables.drugs_specs.update(
+    { drug_time: req.body.comsumption_day_type_id },
+    { where: { id: spec_id } }
+  );
 
   res.send(data);
 };
