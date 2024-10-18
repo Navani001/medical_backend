@@ -26,8 +26,16 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: DataTypes.STRING,
       doctor_id: DataTypes.INTEGER,
-      is_active: DataTypes.BOOLEAN,
-      is_deleted: DataTypes.BOOLEAN,
+   
+      is_active: {
+        type:DataTypes.BOOLEAN,
+        defaultValue:true
+      },
+      is_deleted: {
+        type:DataTypes.BOOLEAN,
+        defaultValue:false
+      },
+     
       created_by: DataTypes.STRING,
       updated_by: DataTypes.STRING,
     },
