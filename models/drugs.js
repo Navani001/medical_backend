@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(models.rx_groups, {
         through: models.rx_drugs,
         foreignKey: "drug_id",
-        otherKey: "rx_groups_id",
+        otherKey: "rx_group_id",
       });
      
     }

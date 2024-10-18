@@ -10,3 +10,9 @@ export const all_rx = async (req: any, res: any) => {
  
   res.send(data);
 };
+export const rx_drug = async (req: any, res: any) => {
+  const userId = req.params.id;
+  const data = await tables.rx_groups.findAll({include:tables.drugs});
+ 
+  res.send(data);
+};
