@@ -1,10 +1,10 @@
+const {drugs  } = require("../../models");
 
-
-  export const sample=(req:any,res:any)=>{
-    res.send("hi")
-    // models.sample_data((err:any,result:any)=>{
-    //     res.send(result)
-    // })
+  export const all_drugs=async(req:any,res:any)=>{
+    
+  const data=await drugs.findAll()
+  console.log(data)
+  res.send(data)
     
   }
  
