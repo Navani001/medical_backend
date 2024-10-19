@@ -7,18 +7,7 @@ const drugs=require("./src/routes/drug.ts")
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://192.168.134.131:3000",
-      "http://localhost:5173",
-      "http://localhost:3001",
-      "https://medical-backend-pi.vercel.app"
-    ],
-    credentials: true,
-  })
-);
+
 app.use(express.static("public"));
 
 app.use("/drugs",drugs)
