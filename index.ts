@@ -14,7 +14,7 @@ app.use(
       "http://192.168.134.131:3000",
       "http://localhost:5173",
       "http://localhost:3001",
-      "https://medical-backend-pi.vercel.app/"
+      "https://medical-backend-pi.vercel.app"
     ],
     credentials: true,
   })
