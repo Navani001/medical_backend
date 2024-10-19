@@ -1,26 +1,36 @@
 require('dotenv').config();
-console.log(process.env.PASSWORD)
+
+
 module.exports = {
   development: {
-    username: "postgres",
-    password: process.env.PASSWORD,
-    database: "medical",
-    host: "localhost",
-    dialect: "postgres",
-    
+    username: 'postgres.sppocderibkuoinguugo',
+    password: process.env.PASSWORD, // Replace with your actual development password
+    database: 'postgres',
+    host: 'aws-0-ap-south-1.pooler.supabase.com',
+    dialect: 'postgres',
+    port: 6543, 
+  
   },
   test: {
-    username: "root",
+    username: 'root',
     password: null,
-    database: "database_test",
-    host: "127.0.0.1",
-    dialect: "mysql",
+    database: 'database_test',
+    host: '127.0.0.1',
+    dialect: 'mysql',
   },
   production: {
-    username: "root",
-    password: null,
-    database: "database_production",
-    host: "127.0.0.1",
-    dialect: "mysql",
+    username: 'Navani001', // Supabase username
+    password: 'Navani@2006krish', // Supabase password
+    database: 'medical', // Supabase database name
+    host: 'postgresql://postgres.sppocderibkuoinguugo:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres', // Supabase host
+    port: 5432, // PostgreSQL port
+    dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
   },
 };
+

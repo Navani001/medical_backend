@@ -9,12 +9,23 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+// let sequelize;
+// if (config.use_env_variable) {
+//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+// } else {
+//   sequelize = new Sequelize(config.database, config.username, config.password, config);
+// }
+
+
+const sequelize = new Sequelize("postgresql://navanihk:eMzz1iiHJANOGpEmPk6eUEdIgN9DBnyu@dpg-cs9o21i3esus739is9lg-a.oregon-postgres.render.com/testing_5eau", {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true, // Depending on your database settings, you may need this.
+      rejectUnauthorized: false // For self-signed certificates, set to false
+    }
+  }
+});
 
 fs
   .readdirSync(__dirname)
