@@ -3,12 +3,12 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: 'postgres.sppocderibkuoinguugo',
+    username: 'postgres',
     password: process.env.PASSWORD, // Replace with your actual development password
     database: 'postgres',
-    host: 'aws-0-ap-south-1.pooler.supabase.com',
+    host: 'localhost',
     dialect: 'postgres',
-    port: 6543, 
+    port: 5432, 
   
   },
   test: {
