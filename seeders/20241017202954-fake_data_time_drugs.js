@@ -14,9 +14,9 @@ module.exports = {
     */
     await queryInterface.bulkInsert('time_drugs', [{
        id:1,
-       is_morning:true,
-       is_evening:false,
-       is_afternoon:false,
+       is_morning:1,
+       is_evening:1,
+       is_afternoon:0,
        createdAt:new Date(),
        updatedAt:new Date()
        }], {});

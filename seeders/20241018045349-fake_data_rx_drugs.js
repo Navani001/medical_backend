@@ -12,14 +12,14 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('rx_drugs', [{
-      id:1,
-      rx_group_id:1,
-      drug_id: 1,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+    // await queryInterface.bulkInsert('rx_drugs', [{
+    //   id:1,
+    //   rx_group_id:1,
+    //   drug_id: 1,
+    //   createdAt: new Date(),
+    //   updatedAt: new Date(),
       
-       }], {});
+    //    }], {});
   },
 
   async down (queryInterface, Sequelize) {

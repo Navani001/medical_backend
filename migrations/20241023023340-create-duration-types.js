@@ -2,21 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('time_drugs', {
+    await queryInterface.createTable('duration_types', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      is_morning: {
-        type: Sequelize.INTEGER
+      name: {
+        type: Sequelize.STRING
       },
-      is_evening: {
-        type: Sequelize.INTEGER
+      is_active: {
+        type: Sequelize.BOOLEAN
       },
-      is_afternoon: {
-        type: Sequelize.INTEGER
+      is_deleted: {
+        type: Sequelize.BOOLEAN
+      },
+      created_by: {
+        type: Sequelize.STRING
+      },
+      updated_by: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +35,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('time_drugs');
+    await queryInterface.dropTable('duration_types');
   }
 };
